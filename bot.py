@@ -17,7 +17,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "🐍 Python Jobs Bot (Upwork Only)\n\n"
         "Commands:\n"
         "/jobs - Get latest Upwork Python jobs\n"
-        "Daily updates at 9 AM"
+        
     )
 
 async def jobs_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -43,16 +43,12 @@ async def jobs_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         await update.message.reply_text(f"❌ Error: {str(e)}")
 
 
-
-
-
 def format_jobs_message(jobs: List[Dict]) -> str:
     message = "💼 Latest Upwork Python Jobs:\n\n"
     for i, job in enumerate(jobs[:10], 1):
         message += (
             f"{i}. <b>{job['title']}</b>\n"
             f"   ⏳ Posted: {job['posted']}\n"
-            f"   📍 Location: {job['location']}\n"
             f"   💰 Budget: {job['budget']}\n"
             f"   ⏱ Duration: {job['duration']}\n"
             f"   🔗 <a href='{job['link']}'>View Job</a>\n\n"
@@ -67,11 +63,7 @@ def main() -> None:
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("jobs", jobs_command))
    
-
-    
-    
     app.run_polling()
-
 
 
 if __name__ == '__main__':
