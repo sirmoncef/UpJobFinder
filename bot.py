@@ -14,11 +14,20 @@ TOKEN = os.getenv('BOT_TOKEN')
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Send welcome message"""
     await update.message.reply_text(
-        "🐍 Python Jobs Bot (Upwork Only)\n\n"
-        "Commands:\n"
-        "/jobs - Get latest Upwork Python jobs\n"
-        
+    "🤖 *UpJobFinder Bot – Freelance Job Alerts from Upwork*\n\n"
+    "Welcome to *UpJobFinder*, a Telegram bot that helps freelancers stay up to date with the latest job opportunities posted on *Upwork*.\n\n"
+    "This bot automatically scrapes Upwork and delivers a list of the most recent job listings based on your chosen keyword — whether you're into *Python*, *Django*, *Web Development*, *Automation*, *Data Entry*, *Design*, or anything else!\n\n"
+    "📌 *Features:*\n"
+    "• Fetches the 10 latest Upwork job listings sorted by recency\n"
+    "• Supports custom search keywords (e.g., `/jobs python`, `/jobs django scraping`)\n"
+    "• Avoids senior-level listings for more beginner-friendly results\n"
+    "• Sends clean and readable summaries with job title, budget, duration,  and link (other features are under development)\n"
+    "• Designed for developers, freelancers, and automation enthusiasts\n\n"
+    "🛠 *Commands:*\n"
+    "`/jobs` – Fetch latest Upwork job posts (default: Python)\n"
+    "`/jobs <keyword>` – Search Upwork by keyword (e.g., `/jobs wordpress`)\n"
     )
+
 
 async def jobs_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handle /jobs command with optional keyword"""
